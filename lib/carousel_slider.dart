@@ -319,7 +319,14 @@ class CarouselSliderState extends State<CarouselSlider>
       pageSnapping: widget.options.pageSnapping,
       controller: carouselState!.pageController,
       reverse: widget.options.reverse,
-      itemCount: widget.itemCount,
+      // In infinite mode the carousel starts at realPage (10000 + initialPage),
+      // so the page view needs pages on both sides of it. With only
+      // widget.itemCount pages it clamped to the last item and autoplay
+      // stopped there. ExpandablePageView needs a count, so this gives
+      // realPage pages after the start, as many as there are before it.
+      itemCount: widget.options.enableInfiniteScroll && widget.itemCount > 0
+          ? carouselState!.realPage * 2
+          : widget.itemCount,
       key: widget.options.pageViewKey,
       onPageChanged: (int index) {
         int currentPage = getRealIndex(index + carouselState!.initialPage,
