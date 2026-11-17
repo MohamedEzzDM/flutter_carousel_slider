@@ -53,7 +53,6 @@ class CarouselDemo extends StatelessWidget {
 class DemoItem extends StatelessWidget {
   final String title;
   final String route;
-
   DemoItem(this.title, this.route);
 
   @override
@@ -254,7 +253,7 @@ class ManuallyControlledSlider extends StatefulWidget {
 }
 
 class _ManuallyControlledSliderState extends State<ManuallyControlledSlider> {
-  final CarouselSliderController _controller = CarouselSliderController();
+  final CarouselController _controller = CarouselController();
 
   @override
   void initState() {
@@ -404,7 +403,7 @@ class CarouselWithIndicatorDemo extends StatefulWidget {
 
 class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
   int _current = 0;
-  final CarouselSliderController _controller = CarouselSliderController();
+  final CarouselController _controller = CarouselController();
 
   @override
   Widget build(BuildContext context) {
@@ -509,7 +508,7 @@ class CarouselChangeReasonDemo extends StatefulWidget {
 
 class _CarouselChangeReasonDemoState extends State<CarouselChangeReasonDemo> {
   String reason = '';
-  final CarouselSliderController _controller = CarouselSliderController();
+  final CarouselController _controller = CarouselController();
 
   void onPageChange(int index, CarouselPageChangedReason changeReason) {
     setState(() {

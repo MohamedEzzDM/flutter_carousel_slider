@@ -32,7 +32,7 @@ class CarouselSlider extends StatefulWidget {
   final ExtendedIndexedWidgetBuilder? itemBuilder;
 
   /// A [MapController], used to control the map.
-  final CarouselSliderControllerImpl _carouselController;
+  final CarouselControllerImpl _carouselController;
 
   final int itemCount;
 
@@ -40,13 +40,13 @@ class CarouselSlider extends StatefulWidget {
       {required this.items,
       required this.options,
       this.disableGesture,
-      CarouselSliderController? carouselController,
+      CarouselController? carouselController,
       Key? key})
       : itemBuilder = null,
         itemCount = items != null ? items.length : 0,
         _carouselController = carouselController != null
-            ? carouselController as CarouselSliderControllerImpl
-            : CarouselSliderController() as CarouselSliderControllerImpl,
+            ? carouselController as CarouselControllerImpl
+            : CarouselController() as CarouselControllerImpl,
         super(key: key);
 
   /// The on demand item builder constructor
@@ -55,12 +55,12 @@ class CarouselSlider extends StatefulWidget {
       required this.itemBuilder,
       required this.options,
       this.disableGesture,
-      CarouselSliderController? carouselController,
+      CarouselController? carouselController,
       Key? key})
       : items = null,
         _carouselController = carouselController != null
-            ? carouselController as CarouselSliderControllerImpl
-            : CarouselSliderController() as CarouselSliderControllerImpl,
+            ? carouselController as CarouselControllerImpl
+            : CarouselController() as CarouselControllerImpl,
         super(key: key);
 
   @override
@@ -69,7 +69,7 @@ class CarouselSlider extends StatefulWidget {
 
 class CarouselSliderState extends State<CarouselSlider>
     with TickerProviderStateMixin {
-  final CarouselSliderControllerImpl carouselController;
+  final CarouselControllerImpl carouselController;
   Timer? timer;
 
   CarouselOptions get options => widget.options;

@@ -6,7 +6,7 @@ import 'carousel_options.dart';
 import 'carousel_state.dart';
 import 'utils.dart';
 
-abstract class CarouselSliderController {
+abstract class CarouselController {
   bool get ready;
 
   Future<Null> get onReady;
@@ -23,10 +23,10 @@ abstract class CarouselSliderController {
 
   void stopAutoPlay();
 
-  factory CarouselSliderController() => CarouselSliderControllerImpl();
+  factory CarouselController() => CarouselControllerImpl();
 }
 
-class CarouselSliderControllerImpl implements CarouselSliderController {
+class CarouselControllerImpl implements CarouselController {
   final Completer<Null> _readyCompleter = Completer<Null>();
 
   CarouselState? _state;

@@ -1,7 +1,3 @@
-# 5.0.0
-
-- [FIX] Rename CarouselController to CarouselSliderController
-
 # 4.2.1
 
 - [FIX] temporary remove `PointerDeviceKind.trackpad`
